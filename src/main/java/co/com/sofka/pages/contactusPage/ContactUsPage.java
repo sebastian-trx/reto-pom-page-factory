@@ -36,6 +36,10 @@ public class ContactUsPage extends PageActions {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[3]/div")
     private WebElement successMessage;
 
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[3]/form/div[2]/div[1]/div[2]/span")
+    private WebElement warningMessage;
+
     public void fillAllContactFields() {
         try {
             scrollOn(nameField);
@@ -50,8 +54,24 @@ public class ContactUsPage extends PageActions {
         }
     }
 
+    public void fillNameAndEnquiryContactFields(){
+        try{
+            scrollOn(nameField);
+            typeOnTextField(nameField, "sebastian");
+            scrollOn(messageField);
+            typeOnTextField(messageField, "prueba 1");
+            clickOnElement(sendButton);
+        }catch (Exception e){
+            LOGGER.error("Error al llenar los campos de contacto");
+        }
+
+    }
+
     public String getSuccessMessageText() {
         return getTextFromElement(successMessage);
+    }
+    public String messageBelowTheEmptyField() {
+        return getTextFromElement(warningMessage);
     }
 
 }

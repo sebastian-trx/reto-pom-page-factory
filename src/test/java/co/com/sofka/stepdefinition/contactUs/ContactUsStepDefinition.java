@@ -51,6 +51,31 @@ public class ContactUsStepDefinition extends SetupWebUI {
             quiteDriver();
         }
     }
+
+    @Cuando("diligencia el campo nombre y consulta")
+    public void diligenciaElCampoNombreYConsulta() {
+        try{
+            ContactUsPage contactUsPage = new ContactUsPage(driver, 3);
+            contactUsPage.fillNameAndEnquiryContactFields();
+        }catch (Exception e){
+            Assertions.fail(e.getMessage(), e);
+            LOGGER.error(e.getMessage(),e);
+            quiteDriver();
+        }
+    }
+
+    @Entonces("se muestra un mensaje debajo del campo vacio")
+    public void seMuestraUnMensajeDebajoDelCampoVacio() {
+        try {
+            ContactUsPage contactUsPage = new ContactUsPage(driver, 3);
+            Assertions.assertEquals("Enter email",contactUsPage.messageBelowTheEmptyField());
+            quiteDriver();
+        }catch (Exception e){
+            Assertions.fail(e.getMessage(), e);
+            LOGGER.error(e.getMessage(),e);
+            quiteDriver();
+        }
+    }
 }
 
 
