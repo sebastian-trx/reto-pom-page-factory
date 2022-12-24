@@ -84,6 +84,7 @@ public class PageActions {
             return element.getText();
         } catch (Exception e) {
             LOGGER.warn(e.getMessage(), e);
+            driver.quit();
             return "";
         }
     }

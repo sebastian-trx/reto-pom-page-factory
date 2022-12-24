@@ -27,7 +27,15 @@ public class LandingPage extends PageActions {
     @FindBy(xpath = "/html/body/div[4]/div[2]/div[1]/div[1]/ul/li[6]/a")
     private WebElement contactUsLink;
 
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")
+    private WebElement registerLink;
+
     public void clickOnContactUs(){
         clickOnElement(contactUsLink);
+    }
+
+    public void clickOnRegister(){
+        clickOnElement(registerLink);
     }
 }
