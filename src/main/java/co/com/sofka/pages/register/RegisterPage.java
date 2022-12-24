@@ -56,20 +56,24 @@ public class RegisterPage extends PageActions {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div[2]/div[3]/span[2]/span")
     private WebElement warningMessage;
 
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+    private WebElement logout;
+
     public void fillAllRegisterFields(){
         try{
             scrollOn(genderMale);
             clickOnElement(genderMale);
             scrollOn(firstName);
-            typeOnTextField(firstName, "sebas2");
+            typeOnTextField(firstName, "sebas4");
             scrollOn(lastName);
-            typeOnTextField(lastName, "torres2");
+            typeOnTextField(lastName, "torres4");
             scrollOn(email);
-            typeOnTextField(email, "sebas2@yopmail.com");
+            typeOnTextField(email, "sebas7@yopmail.com");
             scrollOn(password);
-            typeOnTextField(password, "password2");
+            typeOnTextField(password, "password4");
             scrollOn(confirmPassword);
-            typeOnTextField(confirmPassword, "password2");
+            typeOnTextField(confirmPassword, "password4");
             scrollOn(registerButton);
             clickOnElement(registerButton);
         }catch (Exception e) {
@@ -102,5 +106,9 @@ public class RegisterPage extends PageActions {
 
     public String warningMessage(){
         return getTextFromElement(warningMessage);
+    }
+
+    public void clickOnLogout(){
+        clickOnElement(logout);
     }
 }

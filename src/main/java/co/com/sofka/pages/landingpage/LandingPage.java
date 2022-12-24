@@ -16,14 +16,6 @@ public class LandingPage extends PageActions {
     }
 
     @CacheLookup
-    @FindBy(name = "username")
-    private WebElement name;
-
-    /*@CacheLookup
-    @FindBy(name = "password")
-    private WebElement password;*/
-
-    @CacheLookup
     @FindBy(xpath = "/html/body/div[4]/div[2]/div[1]/div[1]/ul/li[6]/a")
     private WebElement contactUsLink;
 
@@ -31,11 +23,32 @@ public class LandingPage extends PageActions {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")
     private WebElement registerLink;
 
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+    private WebElement loginLink;
+
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[2]/a")
+    private WebElement logoutLink;
+
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")
+    private WebElement emailUser;
+
     public void clickOnContactUs(){
         clickOnElement(contactUsLink);
     }
 
     public void clickOnRegister(){
         clickOnElement(registerLink);
+    }
+
+    public void clickOnLogin() {clickOnElement(loginLink);}
+
+    public String logOutOptionIsPresent(){
+        return getTextFromElement(logoutLink);
+    }
+    public String registerOptionIsNotPresent(){
+        return getTextFromElement(emailUser);
     }
 }
