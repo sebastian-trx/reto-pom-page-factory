@@ -12,6 +12,8 @@ public class PageActions {
 
     private static final Logger LOGGER = Logger.getLogger(PageActions.class);
 
+    public String email = "hola@yopmail.com";
+
     protected WebDriver driver;
 
     public PageActions(WebDriver driver, int seconds) {

@@ -1,6 +1,7 @@
 package co.com.sofka.pages.login;
 
 import co.com.sofka.common.PageActions;
+import co.com.sofka.util.EmailGeneration;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,7 @@ public class LoginPage extends PageActions {
 
     public void fillAllLoginFields(){
         scrollOn(email);
-        typeOnTextField(email, "sebas7@yopmail.com");
+        typeOnTextField(email, EmailGeneration.getEmail());
         scrollOn(password);
         typeOnTextField(password,"password4");
         scrollOn(Login);
