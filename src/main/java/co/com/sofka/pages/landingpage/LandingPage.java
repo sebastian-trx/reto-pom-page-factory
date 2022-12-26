@@ -35,6 +35,10 @@ public class LandingPage extends PageActions {
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[1]/div[2]/div[1]/ul/li[1]/a")
     private WebElement emailUser;
 
+    @CacheLookup
+    @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/span")
+    private WebElement errorMessage;
+
     public void clickOnContactUs(){
         clickOnElement(contactUsLink);
     }
@@ -50,5 +54,9 @@ public class LandingPage extends PageActions {
     }
     public String registerOptionIsNotPresent(){
         return getTextFromElement(emailUser);
+    }
+
+    public String loginUnsuccessful(){
+        return getTextFromElement(errorMessage);
     }
 }

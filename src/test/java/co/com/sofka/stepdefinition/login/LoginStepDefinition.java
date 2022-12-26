@@ -61,6 +61,31 @@ public class LoginStepDefinition extends SetupWebUI {
         }
     }
 
+    @Cuando("el cliente intenta iniciar sesion con datos erroneos")
+    public void elClienteIntentaIniciarSesionConDatosErroneos() {
+        try{
+            LandingPage landingPage = new LandingPage(driver,3);
+            landingPage.clickOnLogin();
+            LoginPage loginPage = new LoginPage(driver,3);
+            loginPage.fillAllLoginFieldsWithWrongData();
+        }catch (Exception e){
+            Assertions.fail(e.getMessage(), e);
+            LOGGER.error(e.getMessage(),e);
+            quiteDriver();
+        }
+    }
 
-
+    @Entonces("se muestra un mensaje de error arriba de los campos")
+    public void seMuestraUnMensajeDeErrorArribaDeLosCampos() {
+        try {
+            LandingPage landingPage = new LandingPage(driver,3);
+            Assertions.assertEquals("Login was unsuccessful. Please correct the errors and try again.",
+                    landingPage.loginUnsuccessful());
+            quiteDriver();
+        }catch (Exception e){
+            Assertions.fail(e.getMessage(), e);
+            LOGGER.error(e.getMessage(),e);
+            quiteDriver();
+        }
+    }
 }

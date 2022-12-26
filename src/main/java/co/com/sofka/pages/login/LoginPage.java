@@ -27,15 +27,24 @@ public class LoginPage extends PageActions {
 
     @CacheLookup
     @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input")
-    private WebElement Login;
+    private WebElement login;
+
 
     public void fillAllLoginFields(){
         scrollOn(email);
         typeOnTextField(email, EmailGeneration.getEmail());
         scrollOn(password);
         typeOnTextField(password,"password4");
-        scrollOn(Login);
-        clickOnElement(Login);
+        scrollOn(login);
+        clickOnElement(login);
+    }
+    public void fillAllLoginFieldsWithWrongData(){
+        scrollOn(email);
+        typeOnTextField(email, "wrongEmail@asd.com");
+        scrollOn(password);
+        typeOnTextField(password,"wrongPassword");
+        scrollOn(login);
+        clickOnElement(login);
     }
 
 }

@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        //snippets = CucumberOptions.SnippetType.CAMELCASE,
-        //publish = true,
+        snippets = CucumberOptions.SnippetType.CAMELCASE,
+        publish = true,
         features = {"src/test/resources/features/register/register.feature"},
         glue = {"co.com.sofka.stepdefinition.register"}
         //tags = "@regresion",

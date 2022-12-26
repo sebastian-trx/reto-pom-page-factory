@@ -12,8 +12,6 @@ public class PageActions {
 
     private static final Logger LOGGER = Logger.getLogger(PageActions.class);
 
-    public String email = "hola@yopmail.com";
-
     protected WebDriver driver;
 
     public PageActions(WebDriver driver, int seconds) {
@@ -67,16 +65,6 @@ public class PageActions {
             ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
         } catch (Exception e) {
             LOGGER.warn(e.getMessage(), e);
-        }
-    }
-
-    //Is an Element Displayed
-    protected boolean isDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (Exception e) {
-            LOGGER.warn(e.getMessage(), e);
-            return false;
         }
     }
 
