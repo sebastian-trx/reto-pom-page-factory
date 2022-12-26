@@ -31,20 +31,31 @@ public class LoginPage extends PageActions {
 
 
     public void fillAllLoginFields(){
-        scrollOn(email);
-        typeOnTextField(email, EmailGeneration.getEmail());
-        scrollOn(password);
-        typeOnTextField(password,"password4");
-        scrollOn(login);
-        clickOnElement(login);
+        try{
+            scrollOn(email);
+            typeOnTextField(email, EmailGeneration.getEmail());
+            scrollOn(password);
+            typeOnTextField(password,"password4");
+            scrollOn(login);
+            clickOnElement(login);
+        }catch (Exception e){
+            LOGGER.error("Error al llenar los campos de log in");
+        }
+
+
     }
     public void fillAllLoginFieldsWithWrongData(){
-        scrollOn(email);
-        typeOnTextField(email, "wrongEmail@asd.com");
-        scrollOn(password);
-        typeOnTextField(password,"wrongPassword");
-        scrollOn(login);
-        clickOnElement(login);
+        try{
+            scrollOn(email);
+            typeOnTextField(email, "wrongEmail@asd.com");
+            scrollOn(password);
+            typeOnTextField(password,"wrongPassword");
+            scrollOn(login);
+            clickOnElement(login);
+        }catch (Exception e){
+            LOGGER.error("Error al llenar los campos de log in con data erronea");
+        }
+
     }
 
 }
