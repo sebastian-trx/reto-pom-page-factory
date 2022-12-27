@@ -50,7 +50,7 @@ public class RegisterPage extends PageActions {
     private WebElement registerButton;
 
     @CacheLookup
-    @FindBy(xpath = "/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]")
+    @FindBy(className = "result")
     private WebElement successMessage;
 
     @CacheLookup

@@ -8,10 +8,12 @@ public class EmailGeneration {
     public static String email = "";
     public static String getEmail() {
         flag ++;
-        if(flag <= 1){
+        if(flag != 2){
             Faker faker = new Faker();
 
-            String emailFirstPart = faker.dragonBall().character();
+            //String emailFirstPart = faker.dragonBall().character(); //personajes quemados :(
+
+            String emailFirstPart = faker.animal().name();
 
             String emailFirstPartNoSpace = emailFirstPart.replaceAll("\\s","");
 
